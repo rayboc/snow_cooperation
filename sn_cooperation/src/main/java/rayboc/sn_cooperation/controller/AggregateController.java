@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import rayboc.sn_cooperation.response.AggregateResult;
+import rayboc.sn_cooperation.response.postResultResponse;
 import rayboc.sn_cooperation.service.AggregateService;
 
 @Controller
@@ -14,9 +15,16 @@ public class AggregateController {
 	AggregateService aggregateService;
 
 	@GetMapping("/")
-	public String create() {
+	public String get() {
 		AggregateResult aggregateResult = aggregateService.getAggregate();
 		System.out.println(aggregateResult.getAggregateResponse().get(0));
+		return "index";
+	}
+
+	@GetMapping("/create")
+	public String create() {
+		postResultResponse aggregateResult = aggregateService.createAggregate();
+		System.out.println(aggregateResult.getAggregateResponse());
 		return "index";
 	}
 
