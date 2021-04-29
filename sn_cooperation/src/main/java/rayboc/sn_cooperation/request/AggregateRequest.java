@@ -2,6 +2,9 @@ package rayboc.sn_cooperation.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Data;
+
+@Data
 public class AggregateRequest {
 
 	@JsonProperty("u_requestid")
@@ -14,22 +17,5 @@ public class AggregateRequest {
 		this.uRequestId = uRequestId;
 		this.uBneTestExecuteFlg = uBneTestExecuteFlg;
 	}
-
-	public String getuRequestId() {
-		return uRequestId;
-	}
-
-	public void setuRequestId(String uRequestId) {
-		this.uRequestId = uRequestId;
-	}
-
-	public String getuBneTestExecuteFlg() {
-		return uBneTestExecuteFlg;
-	}
-
-	public void setuBneTestExecuteFlg(String uBneTestExecuteFlg) {
-		this.uBneTestExecuteFlg = uBneTestExecuteFlg;
-	}
-
 
 }

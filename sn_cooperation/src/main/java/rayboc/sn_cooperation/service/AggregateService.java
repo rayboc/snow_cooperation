@@ -41,13 +41,13 @@ public class AggregateService {
 
 	}
 
-	public postResultResponse createAggregate() {
+	public postResultResponse createAggregate(AggregateRequest aggregateRequest) {
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Basic " + base64Credentials);
 		RequestEntity<AggregateRequest> req = RequestEntity.post(url)
 				.headers(headers)
-				.body(new AggregateRequest("TEST20210428-12", "true"));
+				.body(aggregateRequest);
 
 		ResponseEntity<postResultResponse> res = restTemplate.exchange(url, HttpMethod.POST, req, postResultResponse.class);
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import rayboc.sn_cooperation.request.AggregateRequest;
 import rayboc.sn_cooperation.response.AggregateResult;
 import rayboc.sn_cooperation.response.postResultResponse;
 import rayboc.sn_cooperation.service.AggregateService;
@@ -23,8 +24,8 @@ public class AggregateController {
 
 	@GetMapping("/create")
 	public String create() {
-		postResultResponse aggregateResult = aggregateService.createAggregate();
-		System.out.println(aggregateResult.getAggregateResponse());
+		postResultResponse aggregateResult = aggregateService.createAggregate(new AggregateRequest("TEST20210429-1", "true"));
+		System.out.println(aggregateResult.getAggregateDetail());
 		return "index";
 	}
 
